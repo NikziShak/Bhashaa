@@ -12,7 +12,7 @@ export default function App() {
   const [language, setLanguage] = useState('Spanish');
   const [tab, setTab] = useState('Learn');
   const [calling, setCalling] = useState(false);
-  return <SafeAreaView style={s.safe}><StatusBar barStyle="dark-content" backgroundColor="#F7F6F1" />
+  return <SafeAreaView style={s.safe}><StatusBar barStyle="dark-content" />
     <ScrollView contentContainerStyle={s.page} showsVerticalScrollIndicator={false}>
       <View style={s.top}><View><Text style={s.eyebrow}>SUNDAY, NOVEMBER 15</Text><Text style={s.hello}>Namaste, Aanya <Text>☀️</Text></Text></View><View style={s.avatar}><Text style={{fontSize:22}}>🌼</Text></View></View>
       <Text style={s.prompt}>What are we learning today?</Text>
@@ -22,7 +22,7 @@ export default function App() {
       <View style={s.pathCard}><View style={s.pathTop}><View><Text style={s.cardKicker}>PERSONALIZED FOR YOU</Text><Text style={s.pathTitle}>{language} for everyday life</Text></View><View style={s.level}><Text style={s.levelText}>A1 · BEGINNER</Text></View></View><View style={s.progressTrack}><View style={s.progressFill}/></View><Text style={s.progressCaption}>Week 2 of 4 <Text style={{color:'#777'}}> · 68% to your first conversation</Text></Text></View>
       <View style={s.sectionRow}><Text style={s.section}>Today’s learning</Text><Text style={s.link}>3 activities</Text></View>
       {lessons.map((l,i)=><TouchableOpacity key={l.title} style={s.lesson} onPress={()=>setTab('Learn')}><View style={[s.lessonIcon,{backgroundColor:l.color}]}><Text style={{fontSize:22}}>{l.icon}</Text></View><View style={{flex:1}}><Text style={s.lessonTitle}>{l.title}</Text><Text style={s.lessonSub}>{l.sub}</Text></View><Text style={s.lessonArrow}>{l.done?'✓':'›'}</Text></TouchableOpacity>)}
-      <TouchableOpacity style={s.voiceCard} onPress={()=>setCalling(!calling)}><View style={s.voiceText}><Text style={s.voiceKicker}>{calling?'YOUR TUTOR IS READY':'SPEAK, LEARN, REPEAT'}</Text><Text style={s.voiceTitle}>{calling?'Hola, Aanya!':'Practice with Mira'}</Text><Text style={s.voiceSub}>{calling?'Tap to end your practice':'Your friendly AI conversation partner'}</Text></View><View style={[s.mic,calling&&{backgroundColor:'#D8644C'}]}><Text style={{fontSize:22}}>🎙️</Text></View></TouchableOpacity>
+      <TouchableOpacity style={s.voiceCard} onPress={()=>setCalling(!calling)}><View><Text style={s.voiceKicker}>{calling?'YOUR TUTOR IS READY':'SPEAK, LEARN, REPEAT'}</Text><Text style={s.voiceTitle}>{calling?'Hola, Aanya!':'Practice with Mira'}</Text><Text style={s.voiceSub}>{calling?'Tap to end your practice':'Your friendly AI conversation partner'}</Text></View><View style={[s.mic,calling&&{backgroundColor:'#D8644C'}]}><Text style={{fontSize:22}}>🎙️</Text></View></TouchableOpacity>
       <Text style={s.privacy}>🔒  Your progress stays on this device</Text>
     </ScrollView>
     <View style={s.nav}>{[['Learn','⌂'],['Practice','◉'],['Progress','▥'],['Profile','○']].map(([name,icon])=><TouchableOpacity key={name} onPress={()=>setTab(name)} style={s.navItem}><Text style={[s.navIcon,tab===name&&s.navSelected]}>{icon}</Text><Text style={[s.navLabel,tab===name&&s.navSelected]}>{name}</Text></TouchableOpacity>)}</View>

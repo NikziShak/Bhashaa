@@ -2,21 +2,34 @@
   "expo": {
     "name": "Bhashaa",
     "slug": "bhashaa",
+    "description": "Build confidence in a new language through short, everyday voice conversations.",
+    "scheme": "bhashaa",
     "version": "1.0.0",
     "orientation": "portrait",
+    "backgroundColor": "#F7F5EF",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#173C31"
+    },
+    "plugins": [["expo-router", { "root": "src/app" }]],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "bundleIdentifier": "com.bhashabuddy.app",
+      "bundleIdentifier": "com.nikzishak.bhashaa",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Bhashaa uses the microphone for language speaking practice. Audio should be processed on this device and is not uploaded."
+      },
       "supportsTablet": true
     },
     "android": {
-      "package": "com.bhashabuddy.app",
+      "package": "com.nikzishak.bhashaa",
+      "versionCode": 1,
+      "permissions": ["android.permission.RECORD_AUDIO"],
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#173C31",
+        "foregroundImage": "./assets/icon.png"
       },
       "predictiveBackGestureEnabled": false
     },
