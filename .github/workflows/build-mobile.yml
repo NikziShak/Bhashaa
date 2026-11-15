@@ -30,12 +30,12 @@ jobs:
         run: npx tsc --noEmit
       - name: Generate Android project
         run: npx expo prebuild --platform android --non-interactive
-      - name: Build APK
+      - name: Build standalone release APK
         working-directory: android
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleRelease
       - name: Publish APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: android-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: android-release-apk
+          path: android/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
